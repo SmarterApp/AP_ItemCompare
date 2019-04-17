@@ -80,6 +80,7 @@ logging:
       opentestsystem:
         ap:
           itemcompare: "debug"
+          common: "info"
 
 item-compare:
 
