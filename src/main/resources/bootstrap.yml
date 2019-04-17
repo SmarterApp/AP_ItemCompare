@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: "ap-item-migration"
+  cloud:
+    config:
+      enabled: false

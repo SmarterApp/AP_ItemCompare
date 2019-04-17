@@ -26,6 +26,12 @@ spring:
   session:
     store-type: "none"
     enabled: "false"
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
 #  datasource:
 #    url: "jdbc:postgresql://localhost:5432/iat"
 #    username: "${DB_USER}"
@@ -41,20 +47,19 @@ spring:
 #        use_sql_comments: true
 #        format_sql: true
 
-#itembank:
-#  host: "https://gitlab-dev.smarterbalanced.org"
-#  accessToken: "${GITLAB_ACCESS_TOKEN}"
-#  user: "${GITLAB_USER}"
-#  password: "${GITLAB_PASSWORD}"
-#  group: "${GITLAB_GROUP}"
-#  localBaseDir: "${HOME}/ItemBankImport"
-#  apiVersion: "/api/v4"
-#  bankKey: "200"
-#  systemVersion: "iat-31"
+itembank:
+  host: "https://gitlab-dev.smarterbalanced.org"
+  accessToken: "${GITLAB_ACCESS_TOKEN}"
+  user: "${GITLAB_USER}"
+  password: "${GITLAB_PASSWORD}"
+  group: "${GITLAB_GROUP}"
+  localBaseDir: "${HOME}/ItemBankCompare"
+  apiVersion: "/api/v4"
+  bankKey: "200"
+  systemVersion: "iat-31"
 #  enabled:
-#    manager: true
-#    broker: true
 #    database: true
+#    broker: true
 #    producer: true
 #  aws:
 #    endpointUrl: "https://s3.us-east-2.amazonaws.com"
@@ -77,6 +82,11 @@ logging:
           itemcompare: "debug"
 
 item-compare:
+
+
+
+
+
   # When set to true data will NOT be persisted. Data gets mapped and log file produced.
   dryRun: false
   # When set to true new items will be processed for import.
