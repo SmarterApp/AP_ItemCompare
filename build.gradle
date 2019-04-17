@@ -13,11 +13,11 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-//import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
-//import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
-//import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
-//import org.apache.tools.ant.BuildException
-//import org.apache.tools.ant.filters.ReplaceTokens
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+import org.apache.tools.ant.BuildException
+import org.apache.tools.ant.filters.ReplaceTokens
 
 buildscript {
     ext {
