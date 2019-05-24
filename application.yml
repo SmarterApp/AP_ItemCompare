@@ -83,9 +83,10 @@ logging:
           common: "info"
 
 item-compare:
-
-
-
+  # Base directory where comparison result files will be written to
+  reportBaseDir: "${TIMS_COMPARE_REPORT_DIR}"
+  # Temporary directory where item files will be downloaded and deleted after compare completes
+  tempBaseDir: "${TIMS_COMPARE_TEMP_DIR}"
 
 
   # When set to true data will NOT be persisted. Data gets mapped and log file produced.
@@ -106,8 +107,7 @@ item-compare:
   systemUsername: "item-import@smarterbalanced.org"
   # Full Name for Gitlab operations
   systemFullname: "Item Import"
-  # Temporary directory used to package attachments uploaded to S3
-  localBaseDir: "${IAT_IMPORT_LOCAL_BASE_DIR}"
+
   # Directory that contains all Stimulus items
   stimuliSourceDir: "${IAT_IMPORT_STIMULI_DIR}"
   # Directory that contains all Wordlist (wit) items

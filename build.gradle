@@ -105,10 +105,8 @@ dependencies {
 
     compile 'org.codehaus.groovy:groovy-all:2.4.15'
 
-//    compile 'org.hibernate:hibernate-java8:5.0.12.Final'
-//    compile 'com.vladmihalcea:hibernate-types-5:2.2.0'
-//
-//    compile 'org.postgresql:postgresql:42.2.4'
+    compile "org.xmlunit:xmlunit-core:2.6.2"
+    compile "org.xmlunit:xmlunit-matchers:2.6.2"
 
     compileOnly 'org.projectlombok:lombok'
 
