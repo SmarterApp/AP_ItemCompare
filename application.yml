@@ -87,6 +87,8 @@ compare:
   reportBaseDir: "${TIMS_COMPARE_REPORT_DIR}"
   # Temporary directory where item files will be downloaded and deleted after compare completes
   tempBaseDir: "${TIMS_COMPARE_TEMP_DIR}"
+  # File containing item ids to compare
+  compareIdFileName: "compare-ids.txt"
 
 
   # When set to true data will NOT be persisted. Data gets mapped and log file produced.
