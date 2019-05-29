@@ -32,20 +32,6 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
       - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
-#  datasource:
-#    url: "jdbc:postgresql://localhost:5432/iat"
-#    username: "${DB_USER}"
-#    password: "${DB_PASSWORD}"
-#    validationQuery: "SELECT 1"
-#    maxActive: 5
-#  jpa:
-#    hibernate:
-#      ddl-auto: "validate"
-#    properties:
-#      hibernate:
-#        show_sql: false
-#        use_sql_comments: true
-#        format_sql: true
 
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
@@ -57,22 +43,6 @@ itembank:
   apiVersion: "/api/v4"
   bankKey: "200"
   systemVersion: "iat-31"
-#  enabled:
-#    database: true
-#    broker: true
-#    producer: true
-#  aws:
-#    endpointUrl: "https://s3.us-east-2.amazonaws.com"
-#    region: "us-east-2"
-#    bucketName: "${itembank.group}"
-#    accessKey: "${IAT_AWS_ACCESS_KEY}"
-#    secretKey: "${IAT_AWS_ACCESS_SECRET}"
-#  events:
-#    exchange: "iat_item_event_exchange"
-#    queue:
-#      queueName: "iat_item_event_queue"
-#    errorQueue:
-#      queueName: "iat_item_event_queue.dlq"
 
 logging:
   level:
@@ -90,59 +60,23 @@ compare:
   # File containing item ids to compare
   compareIdFileName: "compare-ids.txt"
 
+---
+spring:
+  profiles: dev
 
-  # When set to true data will NOT be persisted. Data gets mapped and log file produced.
-  dryRun: false
-  # When set to true new items will be processed for import.
-  itemImportEnabled: true
-  # When set to true, existing items will only have their import.zip updated
-  updateImportZipOnly: false
-  # When set to true items will be deleted prior to being imported if they already exist in the data store
-  deleteIfExists: false
-  # Number of threads to be used by the Spring Boot asyncExecutor
-  numberOfThreads: 4
-  # When set to true a log file will be written to the application run directory.
-  publishReportEnabled: true
-  # Label used to identify environment to user prior to executing the application
-  environment: "LOCAL"
-  # Username for Gitlab operations
-  systemUsername: "item-import@smarterbalanced.org"
-  # Full Name for Gitlab operations
-  systemFullname: "Item Import"
+itembank:
+  group: "iat-development"
 
-  # Directory that contains all Stimulus items
-  stimuliSourceDir: "${IAT_IMPORT_STIMULI_DIR}"
-  # Directory that contains all Wordlist (wit) items
-  wordlistSourceDir: "${IAT_IMPORT_WORDLIST_DIR}"
-  # Directory containing all items to be processed
-  itemSourceDir: "${IAT_IMPORT_ITEM_DIR}"
-  # File containing a comma delimited list of ItemId, ITS Status and TIMS status values to be processed
-  importIdFile: "import-ids.txt"
-  # Directory containing a list of item ids to be deleted
-  gitlabDeleteIdFile: "delete-ids.txt"
-  #User Roles File
-  userRolesFile: "user-roles.json"
+---
+spring:
+  profiles: uat
 
-#---
-#spring:
-#  profiles: dev
-#  datasource:
-#    url: "jdbc:postgresql://imrt-qa-db.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
-#
-#itembank:
-#  group: "iat-development"
-#
-#item-import:
-#  environment: "DEVELOPMENT"
-#
-#---
-#spring:
-#  profiles: uat
-#  datasource:
-#    url: "jdbc:postgresql://imrt-db-uat-aurora.cjqp2fdamfoh.us-east-2.rds.amazonaws.com:5432/iat"
-#
-#itembank:
-#  group: "iat-uat"
-#
-#item-import:
-#  environment: "UAT"
+itembank:
+  group: "iat-uat"
+
+---
+spring:
+  profiles: prod
+
+itembank:
+  host: "https://itembank.smarterbalanced.org"
