@@ -1,0 +1,87 @@
+# --------------------------------------------------------
+# These properties are the local development properties.
+#
+# Spring boot uses this file when the application is launched
+# with the root of the project set as the working directory.
+# These properties take precendence over the classpath
+# application.yml.
+#
+# Using gradle from the commandline means the working
+# directory is by default the project root.
+#
+# Using Intellij you need to setup your run config so the
+# working directory is the project root.
+# --------------------------------------------------------
+server:
+  port: 8088
+
+security:
+  basic:
+    enabled: "${SECURITY_ENABLED:true}"
+  user:
+    name: "admin"
+    password: "admin"
+
+spring:
+  session:
+    store-type: "none"
+    enabled: "false"
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+
+itembank:
+  host: "https://gitlab-dev.smarterbalanced.org"
+  accessToken: "${GITLAB_ACCESS_TOKEN}"
+  user: "${GITLAB_USER}"
+  password: "${GITLAB_PASSWORD}"
+  group: "${GITLAB_GROUP}"
+  localBaseDir: "${HOME}/ItemBankCompare"
+  apiVersion: "/api/v4"
+  bankKey: "200"
+  systemVersion: "iat-31"
+
+logging:
+  level:
+    org:
+      opentestsystem:
+        ap:
+          itemcompare: "debug"
+          common: "info"
+
+compare:
+  # Base directory where comparison result files will be written to
+  reportBaseDir: "${TIMS_COMPARE_REPORT_DIR}"
+  # Temporary directory where item files will be downloaded and deleted after compare completes
+  tempBaseDir: "${TIMS_COMPARE_TEMP_DIR}"
+  # File containing item ids to compare
+  compareIdFileName: "compare-ids.txt"
+
+  sourceBank:
+    token: "${GITLAB_SOURCE_BANK_ACCESS_TOKEN}"
+    host: "https://itembank.smarterbalanced.org/api/v4"
+    group: "iat-prod"
+    bankKey: "200"
+---
+spring:
+  profiles: dev
+
+itembank:
+  group: "iat-development"
+
+---
+spring:
+  profiles: uat
+
+itembank:
+  group: "iat-uat"
+
+---
+spring:
+  profiles: prod
+
+itembank:
+  host: "https://itembank.smarterbalanced.org"

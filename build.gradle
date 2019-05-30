@@ -1,0 +1,326 @@
+/*
+ *  Copyright 2017 Regents of the University of California.
+ *
+ *  Licensed under the Educational Community License, Version 2.0 (the "license");
+ *  you may not use this file except in compliance with the License. You may
+ *  obtain a copy of the license at
+ *
+ *  https://opensource.org/licenses/ECL-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.DockerPushImage
+import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+import org.apache.tools.ant.BuildException
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'io.github.robwin:jgitflow-gradle-plugin:0.5.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'checkstyle'
+    id 'pmd'
+    id 'findbugs'
+    id 'jacoco'
+    id 'maven-publish'
+    id 'org.springframework.boot'               version '1.5.2.RELEASE'
+    id 'com.jfrog.artifactory'                  version '4.4.14'
+    id 'com.bmuschko.docker-remote-api'         version '3.0.11'
+
+}
+
+apply plugin: 'io.github.robwin.jgitflow'
+apply plugin: 'project-report'
+
+/***************************
+ * dependency management
+ ***************************/
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url "https://airdev.jfrog.io/airdev/libs-releases/" }
+    maven { url "https://airdev.jfrog.io/airdev/libs-snapshots/" }
+}
+
+configurations {
+    compile.exclude module: 'spring-boot-starter-logging'
+}
+
+dependencies {
+    
+    compile "org.opentestsystem.ap:ap-common:${commonVersion}"
+
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-security'
+    compile 'org.springframework.boot:spring-boot-starter-aop'
+    compile 'org.springframework.boot:spring-boot-starter-amqp'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-log4j2'
+    compile 'org.springframework.boot:spring-boot-starter-freemarker'
+    compile 'org.springframework.boot:spring-boot-starter-cache'
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
+    compile 'org.springframework.cloud:spring-cloud-starter-feign'
+
+    compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
+    compile 'org.springframework.retry:spring-retry'
+    compile 'org.springframework.session:spring-session'
+
+    compile 'org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r'
+
+    compile 'org.apache.commons:commons-collections4:4.1'
+    compile 'org.apache.commons:commons-lang3:3.5'
+
+    compile 'com.google.guava:guava:22.0'
+    compile 'com.googlecode.json-simple:json-simple:1.1.1'
+
+    compile 'org.apache.logging.log4j:log4j-api:2.10.0'
+    compile 'org.apache.logging.log4j:log4j-core:2.10.0'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.10.0'
+
+    compile 'com.lmax:disruptor:3.3.7'
+
+    compile 'io.github.openfeign:feign-gson:9.3.1'
+
+    compile 'org.codehaus.groovy:groovy-all:2.4.15'
+
+    compile "org.xmlunit:xmlunit-core:2.6.2"
+    compile "org.xmlunit:xmlunit-matchers:2.6.2"
+
+    compileOnly 'org.projectlombok:lombok'
+
+    runtime 'org.springframework.boot:spring-boot-devtools'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    testCompile 'org.hsqldb:hsqldb'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.RELEASE'
+    }
+}
+
+/***************************
+ * build information
+ ***************************/
+
+springBoot {
+    buildInfo()
+}
+
+processResources {
+    filesMatching("**/application.yml") {
+        expand project.properties
+    }
+}
+
+/***************************
+ * run compare service
+ ***************************/
+
+task bootRunCompare(type: org.springframework.boot.gradle.run.BootRunTask) {
+    doFirst() {
+        main = project.mainClassName
+        classpath = sourceSets.main.runtimeClasspath
+        systemProperty "spring.profiles.active", "prod"
+    }
+}
+
+/***************************
+ * publishing
+ ***************************/
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
+
+        artifact sourceJar {
+            classifier "sources"
+        }
+    }
+}
+
+artifactory {
+    contextUrl = artifactoryUrl
+
+    publish {
+        repository {
+            repoKey = project.version.contains('-SNAPSHOT') ? project.artifactorySnapshotPublish : project.artifactoryReleasePublish
+            username = project.artifactoryUser
+            password = project.artifactoryPassword
+            maven = true
+        }
+        defaults {
+            publications('mavenJava')
+        }
+    }
+}
+
+/***************************
+ * docker
+ ***************************/
+
+docker {
+    registryCredentials {
+        username = project.dockerHubUser
+        password = project.dockerHubPassword
+        email = project.dockerHubEmail
+    }
+}
+
+task dockerCopyFiles(type: Copy) {
+    dependsOn 'bootRepackage'
+
+    from('src/main/docker/') {
+        filter(ReplaceTokens, tokens: [USER_HOME          : System.env.HOME,
+                                       configServerVersion: project.configServerVersion,
+                                       version            : project.version,
+                                       dockerTagBase      : project.dockerTagBase])
+    }
+
+    from("build/libs/${jar.archiveName}") {
+        // drop version from artifact name
+        rename { String fileName ->
+            fileName.replace("-${project.version}", "")
+        }
+    }
+
+    into 'build/docker'
+}
+
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn 'dockerCopyFiles'
+    inputDir = project.file('build/docker/')
+    tag = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+task dockerPushImage(type: DockerPushImage) {
+    dependsOn 'dockerBuildImage'
+    imageName = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+task dockerRemoveImage(type: DockerRemoveImage) {
+    imageId = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+/***************************
+ * Checkstyle
+ ***************************/
+
+checkstyle {
+    ignoreFailures = true
+}
+
+/***************************
+ * PMD
+ ***************************/
+
+pmd {
+    ignoreFailures = true
+
+    ruleSets = [
+            'java-basic',
+            'java-braces',
+            'java-clone',
+            'java-codesize',
+            'java-coupling',
+            'java-design',
+            'java-empty',
+            'java-finalizers',
+            'java-imports',
+            'java-j2ee',
+            'java-javabeans',
+            'java-junit',
+            'java-naming',
+            'java-optimizations',
+            'java-strictexception',
+            'java-strings',
+            'java-sunsecure',
+            'java-typeresolution',
+            'java-unnecessary',
+            'java-unusedcode'
+    ]
+}
+
+/***************************
+ * FindBugs
+ ***************************/
+
+findbugs {
+    ignoreFailures = true
+    reportLevel = "medium"
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
+    }
+}
+
+
+/***************************
+ * set common version
+ ***************************/
+
+task updateCommonVersion {
+    doLast {
+        doCommonVersionUpdate(project.newCommonVersion)
+    }
+}
+
+def doCommonVersionUpdate(String version) {
+    String currentVersion = project.commonVersion
+    File propertiesFile = project.file(Project.GRADLE_PROPERTIES)
+    if (!propertiesFile.file) {
+        propertiesFile.append("commonVersion=${version}")
+    }else {
+        try {
+            project.ant.replace(file: propertiesFile, token: "commonVersion=${currentVersion}", value: "commonVersion=${version}", failOnNoReplacements: true)
+        } catch (BuildException e) {
+            throw new GradleException("Failed to update version in ${Project.GRADLE_PROPERTIES}.  Check the property exists and is formatted correctly.")
+        }
+    }
+}
+
+/***************************
+ * gradle wrapper
+ ***************************/
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
+
+/***************************
+ * Lifecycle enhancements
+ ***************************/
+
+tasks.artifactoryPublish.dependsOn 'build'
+
+test.finalizedBy(jacocoTestReport)
