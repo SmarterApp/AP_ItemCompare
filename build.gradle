@@ -33,7 +33,7 @@ buildscript {
 }
 
 plugins {
-    id 'java'
+    id 'groovy'
     id 'idea'
     id 'checkstyle'
     id 'pmd'
@@ -53,7 +53,8 @@ apply plugin: 'project-report'
  * dependency management
  ***************************/
 
-//sourceSets.main.java.srcDirs = []
+sourceSets.main.java.srcDirs = []
+sourceSets.main.groovy.srcDirs += ["src/main/java"]
 
 repositories {
     mavenCentral()
@@ -148,3 +149,181 @@ task bootRunCompare(type: org.springframework.boot.gradle.run.BootRunTask) {
         systemProperty "spring.profiles.active", "prod"
     }
 }
+
+/***************************
+ * publishing
+ ***************************/
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+publishing.publications {
+    mavenJava(MavenPublication) {
+        from components.java
+
+        artifact sourceJar {
+            classifier "sources"
+        }
+    }
+}
+
+artifactory {
+    contextUrl = artifactoryUrl
+
+    publish {
+        repository {
+            repoKey = project.version.contains('-SNAPSHOT') ? project.artifactorySnapshotPublish : project.artifactoryReleasePublish
+            username = project.artifactoryUser
+            password = project.artifactoryPassword
+            maven = true
+        }
+        defaults {
+            publications('mavenJava')
+        }
+    }
+}
+
+/***************************
+ * docker
+ ***************************/
+
+docker {
+    registryCredentials {
+        username = project.dockerHubUser
+        password = project.dockerHubPassword
+        email = project.dockerHubEmail
+    }
+}
+
+task dockerCopyFiles(type: Copy) {
+    dependsOn 'bootRepackage'
+
+    from('src/main/docker/') {
+        filter(ReplaceTokens, tokens: [USER_HOME          : System.env.HOME,
+                                       configServerVersion: project.configServerVersion,
+                                       version            : project.version,
+                                       dockerTagBase      : project.dockerTagBase])
+    }
+
+    from("build/libs/${jar.archiveName}") {
+        // drop version from artifact name
+        rename { String fileName ->
+            fileName.replace("-${project.version}", "")
+        }
+    }
+
+    into 'build/docker'
+}
+
+task dockerBuildImage(type: DockerBuildImage) {
+    dependsOn 'dockerCopyFiles'
+    inputDir = project.file('build/docker/')
+    tag = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+task dockerPushImage(type: DockerPushImage) {
+    dependsOn 'dockerBuildImage'
+    imageName = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+task dockerRemoveImage(type: DockerRemoveImage) {
+    imageId = "${project.dockerTagBase}/${jar.baseName}:${project.version}"
+}
+
+/***************************
+ * Checkstyle
+ ***************************/
+
+checkstyle {
+    ignoreFailures = true
+}
+
+/***************************
+ * PMD
+ ***************************/
+
+pmd {
+    ignoreFailures = true
+
+    ruleSets = [
+            'java-basic',
+            'java-braces',
+            'java-clone',
+            'java-codesize',
+            'java-coupling',
+            'java-design',
+            'java-empty',
+            'java-finalizers',
+            'java-imports',
+            'java-j2ee',
+            'java-javabeans',
+            'java-junit',
+            'java-naming',
+            'java-optimizations',
+            'java-strictexception',
+            'java-strings',
+            'java-sunsecure',
+            'java-typeresolution',
+            'java-unnecessary',
+            'java-unusedcode'
+    ]
+}
+
+/***************************
+ * FindBugs
+ ***************************/
+
+findbugs {
+    ignoreFailures = true
+    reportLevel = "medium"
+}
+
+tasks.withType(FindBugs) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.stylesheet resources.text.fromFile('config/findbugs/findbugs-color.xsl')
+    }
+}
+
+
+/***************************
+ * set common version
+ ***************************/
+
+task updateCommonVersion {
+    doLast {
+        doCommonVersionUpdate(project.newCommonVersion)
+    }
+}
+
+def doCommonVersionUpdate(String version) {
+    String currentVersion = project.commonVersion
+    File propertiesFile = project.file(Project.GRADLE_PROPERTIES)
+    if (!propertiesFile.file) {
+        propertiesFile.append("commonVersion=${version}")
+    }else {
+        try {
+            project.ant.replace(file: propertiesFile, token: "commonVersion=${currentVersion}", value: "commonVersion=${version}", failOnNoReplacements: true)
+        } catch (BuildException e) {
+            throw new GradleException("Failed to update version in ${Project.GRADLE_PROPERTIES}.  Check the property exists and is formatted correctly.")
+        }
+    }
+}
+
+/***************************
+ * gradle wrapper
+ ***************************/
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4.1'
+}
+
+/***************************
+ * Lifecycle enhancements
+ ***************************/
+
+tasks.artifactoryPublish.dependsOn 'build'
+
+test.finalizedBy(jacocoTestReport)
