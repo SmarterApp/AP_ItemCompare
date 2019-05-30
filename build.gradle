@@ -33,7 +33,7 @@ buildscript {
 }
 
 plugins {
-    id 'groovy'
+    id 'java'
     id 'idea'
     id 'checkstyle'
     id 'pmd'
@@ -53,11 +53,8 @@ apply plugin: 'project-report'
  * dependency management
  ***************************/
 
-sourceSets.main.java.srcDirs = []
-sourceSets.main.groovy.srcDirs += ["src/main/java"]
-
 repositories {
-    mavenCentral()
+    mavenLocal()
     mavenCentral()
     maven { url "https://airdev.jfrog.io/airdev/libs-releases/" }
     maven { url "https://airdev.jfrog.io/airdev/libs-snapshots/" }
