@@ -137,9 +137,11 @@ processResources {
     }
 }
 
+/***************************
+ * run compare service
+ ***************************/
 
-
-task bootRunCompareProd(type: org.springframework.boot.gradle.run.BootRunTask) {
+task bootRunCompare(type: org.springframework.boot.gradle.run.BootRunTask) {
     doFirst() {
         main = project.mainClassName
         classpath = sourceSets.main.runtimeClasspath
