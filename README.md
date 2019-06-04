@@ -39,7 +39,7 @@ Work with the development team to populate the missing values
 
 ### Setup project files
 1. Create a local directories configured as the `TIMS_COMPARE_REPORT_DIR` and `TIMS_COMPARE_TEMP_DIR` environment variables
-1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.1.0/ap-item-compare-0.1.0.jar)
+1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.0/ap-item-compare-0.5.0.jar)
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
 
 ### Item Id Configuration
