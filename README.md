@@ -60,7 +60,7 @@ Prior to running the compare application, the ids of the items that will be comp
  To run the compare application
  1. Open a terminal window
  1. Navigate to the `TIMS_COMPARE_REPORT_DIR` directory
- 1. Execute `java -jar ap-item-compare-0.1.0.jar`. Note: the specific version number might change.
+ 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.0.jar`
  
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
