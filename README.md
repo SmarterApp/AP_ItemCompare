@@ -41,9 +41,10 @@ Work with the development team to populate the missing values
 1. Create a local directories configured as the `TIMS_COMPARE_REPORT_DIR` and `TIMS_COMPARE_TEMP_DIR` environment variables
 1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.0/ap-item-compare-0.5.0.jar)
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
+1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
 
 ### Item Id Configuration
-Prior to running the compare application, the ids of the items that will be compared should be saved in the `compare-ids.txt` file located on the `TIMS_COMPARE_REPORT_DIR` directory. Example values:
+Prior to running the compare application, the ids of the items that will be compared should be saved in the `compare-ids.txt` file. Example values:
 
 ```
 45990
@@ -93,4 +94,33 @@ One file is created for each valid item number entered in `compare-ids.txt`. e.g
 "18786","mc","metadata.xml","CHILD_LOOKUP","EnemyItem","","#text","","/metadata[1]/smarterAppMetadata[1]/EnemyItem[1]/text()[1]"
 "18786","mc","metadata.xml","TEXT_VALUE","Status","","Operational","Released","/metadata[1]/smarterAppMetadata[1]/Status[1]/text()[1]"
 "18786","mc","metadata.xml","CHILD_LOOKUP","IrtDimension","","IrtDimension","","/metadata[1]/smarterAppMetadata[1]/IrtDimension[1]"
+```
+
+### High-level report
+One file is created for the entire compare execution. This report will categorize the number of items having each particular difference to help identify common differences and patterns. 
+The high-level report file name follows the following pattern `tims-compare-<timestamp>.csv`
+
+#### Columns
+* `DifferenceType`: An enumeration of the type of difference
+* `ImportElementName`: Element name where the difference was found
+* `ImportAttributes`: Element attributed where the difference was found
+* `ImportValue`: Value on the file used during the initial import
+* `TimsValue`: Value on the current file stored in TIMS
+* `Count`: Occurrences of specific difference
+
+```csv
+"DifferenceType","ImportElementName","ImportAttributes","ImportValue","TimsValue","Count"
+"CHILD_LOOKUP","desc","","Tutorial_1","NOT_FOUND",1
+"TEXT_VALUE","associatedpassage","","46","170046",1
+"ATTR_VALUE","MachineRubric","","Item_11065_v6.qrx","Item_11065_v11.qrx",1
+"ATTR_NAME_LOOKUP","samplelist","","minval","NOT_FOUND",2
+"ATTR_VALUE","attachment","","item_45990_enu_brf_ebae_uncontracted_exl.brf","item_45990_enu_exl.brf",1
+"CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","TertiaryClaim",8
+"CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","source",10
+"TEXT_VALUE","Version","","2","2.0",2
+"ATTR_VALUE","attachment","","item_11417_enu_brf_ebae_uncontracted_nemeth_exn.brf","item_11417_enu_ecn.brf",1
+"CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","LanguageFeatures",9
+"CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","Claim2RevisionCategory",8
+"CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","PrimaryClaim",8
+"TEXT_VALUE","AssociatedStimulus","","46","170046",1
 ```
