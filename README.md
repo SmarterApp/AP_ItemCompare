@@ -108,6 +108,7 @@ The high-level report file name follows the following pattern `tims-compare-<tim
 * `TimsValue`: Value on the current file stored in TIMS
 * `Count`: Occurrences of specific difference
 
+#### Sample high level item report 
 ```csv
 "DifferenceType","ImportElementName","ImportAttributes","ImportValue","TimsValue","Count"
 "CHILD_LOOKUP","desc","","Tutorial_1","NOT_FOUND",1
