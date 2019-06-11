@@ -30,7 +30,7 @@ A simple directory structure like this is recommended:
    ~/ItemCompareReports
    ~/ItemCompareReports/temp
    ```
-1. Download most recent ap-item-compare application Jar file to the Report directory. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.4/ap-item-compare-0.5.4.jar)
+1. Download most recent ap-item-compare application Jar file from the [Releases](https://github.com/SmarterApp/AP_ItemCompare/releases) page. Only the Jar file is needed. Download file to the Report directory
 1. Rename the Jar file to `ap-item-compare.jar`
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the Report directory created earlier
 1. Create an empty text file named `compare-ids.txt` in the Report directory
