@@ -14,7 +14,6 @@
             <PatternLayout>
                 <Pattern>%d{yyyy-MM-dd HH:mm:ss} %p %m%n</Pattern>
             </PatternLayout>
-            <TimeBasedTriggeringPolicy />
         </File>
     </Appenders>
     <Loggers>
