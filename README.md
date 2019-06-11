@@ -29,10 +29,10 @@ Download and install the Java 8 SE Runtime environment for your operating system
    ~/ItemCompareReports
    ~/ItemCompareReports/temp
    ```
-1. Download most recent ap-item-compare application Jar file to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.2/ap-item-compare-0.5.2.jar)
+1. Download most recent ap-item-compare application Jar file to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.3/ap-item-compare-0.5.3.jar)
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
 1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
-
+1. Copy the [scripts](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/scripts) directory contents to your Reports Directory
 ### Environment variables
 Setup the following environment variables on your local computer
 
