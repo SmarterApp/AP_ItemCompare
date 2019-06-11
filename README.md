@@ -107,7 +107,7 @@ One file is created for the entire compare execution. This report will categoriz
 The high-level report file name follows the following pattern `tims-compare-<timestamp>.csv`
 
 #### Columns
-* `DifferenceType`: An enumeration of the type of difference
+* `DifferenceType`: The type of difference. For a full list of possible values please review: [XmlUnit Difference Types](https://github.com/xmlunit/xmlunit/blob/master/xmlunit-core/src/main/java/org/xmlunit/diff/ComparisonType.java)
 * `ImportElementName`: Element name where the difference was found
 * `ImportAttributes`: Element attributed where the difference was found
 * `ImportValue`: Value on the file used during the initial import
