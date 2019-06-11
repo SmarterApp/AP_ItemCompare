@@ -21,18 +21,25 @@ Download and install the Java 8 SE Runtime environment for your operating system
  [Java SE Runtime](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
 ### Setup project files
-1. Create two local directories. 
+Create local directories. 
    * Report directory. This will be configured as the `TIMS_COMPARE_REPORT_DIR` environment variable.
    * Temporary directory. This will be configured as the `TIMS_COMPARE_TEMP_DIR` environment variable.
-   A simple structure like this is recommended
+
+A simple directory structure like this is recommended:
    ```
    ~/ItemCompareReports
    ~/ItemCompareReports/temp
    ```
-1. Download most recent ap-item-compare application Jar file to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.3/ap-item-compare-0.5.3.jar)
-1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
-1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
-1. Copy the [scripts](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/scripts) directory contents to your Reports Directory
+1. Download most recent ap-item-compare application Jar file to the Report directory. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.4/ap-item-compare-0.5.4.jar)
+1. Rename the Jar file to `ap-item-compare.jar`
+1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the Report directory created earlier
+1. Create an empty text file named `compare-ids.txt` in the Report directory
+1. Copy the [scripts](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/scripts) directory contents to your Report directory
+1. If your operating system is MacOs 
+   1. Open a terminal window
+   1. Navigate to the Report directory
+   1. Run the following command `chmod +x *.sh` to make the shell scripts executable
+
 ### Environment variables
 Setup the following environment variables on your local computer
 
@@ -67,8 +74,16 @@ Prior to running the compare application, the ids of the items that will be comp
  To run the compare application
  1. Open a terminal window
  1. Navigate to the `TIMS_COMPARE_REPORT_DIR` directory
- 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.2.jar`
- 
+ 1. Based on your operating system run one of the following commands:
+    * On MacOs
+      * run `./runCompareProd.sh` to compare items in the production environment
+      * run `./runCompareUat.sh` to compare items in the uat environment
+      * run `./runCompareDev.sh` to compare items in the development environment
+    * On MacOs
+      * run `runCompareProd.bat` to compare items in the production environment
+      * run `runCompareUat.bat` to compare items in the uat environment
+      * run `runCompareDev.bat` to compare items in the development environment
+   
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
 This directory will contain both reports.  

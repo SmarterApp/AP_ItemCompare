@@ -1,1 +1,1 @@
-java -jar ap-item-compare-0.5.3.jar --spring.profiles.active=dev
+java -jar ap-item-compare.jar --spring.profiles.active=dev
