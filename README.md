@@ -79,7 +79,7 @@ Prior to running the compare application, the ids of the items that will be comp
       * run `./runCompareProd.sh` to compare items in the production environment
       * run `./runCompareUat.sh` to compare items in the uat environment
       * run `./runCompareDev.sh` to compare items in the development environment
-    * On MacOs
+    * On Windows
       * run `runCompareProd.bat` to compare items in the production environment
       * run `runCompareUat.bat` to compare items in the uat environment
       * run `runCompareDev.bat` to compare items in the development environment
