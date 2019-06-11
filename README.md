@@ -39,7 +39,7 @@ Work with the development team to populate the missing values
 
 ### Setup project files
 1. Create a local directories configured as the `TIMS_COMPARE_REPORT_DIR` and `TIMS_COMPARE_TEMP_DIR` environment variables
-1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.0/ap-item-compare-0.5.0.jar)
+1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.1/ap-item-compare-0.5.1.jar)
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
 1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
 
@@ -61,7 +61,7 @@ Prior to running the compare application, the ids of the items that will be comp
  To run the compare application
  1. Open a terminal window
  1. Navigate to the `TIMS_COMPARE_REPORT_DIR` directory
- 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.0.jar`
+ 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.1.jar`
  
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
@@ -108,6 +108,7 @@ The high-level report file name follows the following pattern `tims-compare-<tim
 * `TimsValue`: Value on the current file stored in TIMS
 * `Count`: Occurrences of specific difference
 
+#### Sample high level item report 
 ```csv
 "DifferenceType","ImportElementName","ImportAttributes","ImportValue","TimsValue","Count"
 "CHILD_LOOKUP","desc","","Tutorial_1","NOT_FOUND",1

@@ -84,4 +84,4 @@ spring:
   profiles: prod
 
 itembank:
-  host: "https://itembank.smarterbalanced.org"
+  group: "iat-prod"
