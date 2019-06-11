@@ -131,3 +131,5 @@ The high-level report file name follows the following pattern `tims-compare-<tim
 "CHILD_LOOKUP","NOT_FOUND","","NOT_FOUND","PrimaryClaim",8
 "TEXT_VALUE","AssociatedStimulus","","46","170046",1
 ```
+### Additional Logging
+Additional application logging is written to a file named `ap-compare.log`
