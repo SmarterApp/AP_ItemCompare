@@ -20,8 +20,20 @@ The files that are compared are:
 Download and install the Java 8 SE Runtime environment for your operating system:
  [Java SE Runtime](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
+### Setup project files
+1. Create two local directories. 
+   * Report directory. This will be configured as the `TIMS_COMPARE_REPORT_DIR` environment variable.
+   * Temporary directory. This will be configured as the `TIMS_COMPARE_TEMP_DIR` environment variable.
+   A simple structure like this is recommended
+   ```
+   ~/ItemCompareReports
+   ~/ItemCompareReports/temp
+   ```
+1. Download most recent ap-item-compare application Jar file to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.2/ap-item-compare-0.5.2.jar)
+1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
+1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
 
-#### Environment variables
+### Environment variables
 Setup the following environment variables on your local computer
 
 ```
@@ -32,16 +44,10 @@ GITLAB_HOST=
 GITLAB_PASSWORD=
 GITLAB_USER=
 TIMS_COMPARE_REPORT_DIR=~/ItemCompareReports
-TIMS_COMPARE_TEMP_DIR=~/ItemBankCompare
+TIMS_COMPARE_TEMP_DIR=~/ItemCompareReports/temp
 ```
 
 Work with the development team to populate the missing values
-
-### Setup project files
-1. Create a local directories configured as the `TIMS_COMPARE_REPORT_DIR` and `TIMS_COMPARE_TEMP_DIR` environment variables
-1. Download most recent Jar file of the ap-item-compare application to the `TIMS_COMPARE_REPORT_DIR`. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.1/ap-item-compare-0.5.1.jar)
-1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the `TIMS_COMPARE_REPORT_DIR`
-1. Create an empty text file named `compare-ids.txt` in the `TIMS_COMPARE_REPORT_DIR` directory
 
 ### Item Id Configuration
 Prior to running the compare application, the ids of the items that will be compared should be saved in the `compare-ids.txt` file. Example values:
@@ -61,7 +67,7 @@ Prior to running the compare application, the ids of the items that will be comp
  To run the compare application
  1. Open a terminal window
  1. Navigate to the `TIMS_COMPARE_REPORT_DIR` directory
- 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.1.jar`
+ 1. Execute `java -jar <jar-file-name>`. e.g. `java -jar ap-item-compare-0.5.2.jar`
  
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
