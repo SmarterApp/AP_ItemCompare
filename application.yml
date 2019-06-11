@@ -59,11 +59,10 @@ compare:
   tempBaseDir: "${TIMS_COMPARE_TEMP_DIR}"
   # File containing item ids to compare
   compareIdFileName: "compare-ids.txt"
-
   sourceBank:
+    host: "https://gitlab-dev.smarterbalanced.org/api/v4"
     token: "${GITLAB_SOURCE_BANK_ACCESS_TOKEN}"
-    host: "https://itembank.smarterbalanced.org/api/v4"
-    group: "iat-prod"
+    group: "${GITLAB_GROUP}"
     bankKey: "200"
 ---
 spring:
@@ -72,6 +71,9 @@ spring:
 itembank:
   group: "iat-development"
 
+compare:
+  sourceBank:
+    host: "https://gitlab-dev.smarterbalanced.org/api/v4"
 ---
 spring:
   profiles: uat
@@ -79,9 +81,18 @@ spring:
 itembank:
   group: "iat-uat"
 
+compare:
+  sourceBank:
+    host: "https://gitlab-dev.smarterbalanced.org/api/v4"
+    group: "iat-uat"
 ---
 spring:
   profiles: prod
 
 itembank:
   group: "iat-prod"
+
+compare:
+  sourceBank:
+    host: "https://itembank.smarterbalanced.org/api/v4"
+    group: "iat-prod"
