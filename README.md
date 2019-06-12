@@ -30,7 +30,7 @@ A simple directory structure like this is recommended:
    ~/ItemCompareReports
    ~/ItemCompareReports/temp
    ```
-1. Download most recent ap-item-compare application Jar file to the Report directory. [Current Download Url](https://airdev.jfrog.io/airdev/libs-releases-local/org/opentestsystem/ap/ap-item-compare/0.5.4/ap-item-compare-0.5.4.jar)
+1. Download most recent ap-item-compare application Jar file from the [Releases](https://github.com/SmarterApp/AP_ItemCompare/releases) page. Only the Jar file is needed. Download file to the Report directory
 1. Rename the Jar file to `ap-item-compare.jar`
 1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the Report directory created earlier
 1. Create an empty text file named `compare-ids.txt` in the Report directory
@@ -79,7 +79,7 @@ Prior to running the compare application, the ids of the items that will be comp
       * run `./runCompareProd.sh` to compare items in the production environment
       * run `./runCompareUat.sh` to compare items in the uat environment
       * run `./runCompareDev.sh` to compare items in the development environment
-    * On MacOs
+    * On Windows
       * run `runCompareProd.bat` to compare items in the production environment
       * run `runCompareUat.bat` to compare items in the uat environment
       * run `runCompareDev.bat` to compare items in the development environment
@@ -95,7 +95,7 @@ One file is created for each valid item number entered in `compare-ids.txt`. e.g
 * `ItemId`: The id of the item
 * `ItemType`: The type of the item
 * `FileName`: The item filename where the difference was found 
-* `DifferenceType`: The type of difference. For a full list of possible values please review: [XmlUnit Difference Types](https://github.com/xmlunit/xmlunit/blob/master/xmlunit-core/src/main/java/org/xmlunit/diff/ComparisonType.java)
+* `DifferenceType`: The type of difference. For more details please review: [XmlUnit Difference Types](docs/difference-types.md)
 * `ImportElementName`: Element name where the difference was found
 * `ImportAttributes`: Element attributed where the difference was found
 * `ImportValue`: Value on the file used during the initial import
@@ -122,7 +122,7 @@ One file is created for the entire compare execution. This report will categoriz
 The high-level report file name follows the following pattern `tims-compare-<timestamp>.csv`
 
 #### Columns
-* `DifferenceType`: The type of difference. For a full list of possible values please review: [XmlUnit Difference Types](https://github.com/xmlunit/xmlunit/blob/master/xmlunit-core/src/main/java/org/xmlunit/diff/ComparisonType.java)
+* `DifferenceType`: The type of difference. For more details please review: [XmlUnit Difference Types](docs/difference-types.md)
 * `ImportElementName`: Element name where the difference was found
 * `ImportAttributes`: Element attributed where the difference was found
 * `ImportValue`: Value on the file used during the initial import
