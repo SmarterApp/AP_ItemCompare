@@ -31,7 +31,7 @@ A simple directory structure like this is recommended:
    ~/ItemCompareReports/temp
    ```
 1. Go to the AP_ItemCompare [Releases](https://github.com/SmarterApp/AP_ItemCompare/releases) page.
-1. From the most recent release, download the following files:
+1. From the most recent release, download the following files to the Report directory created earlier:
    1. Application jar file. File name will contain the most recent version number.
    1. application.yml
    1. runCompareProd.bat
