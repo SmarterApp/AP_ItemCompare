@@ -95,7 +95,7 @@ One file is created for each valid item number entered in `compare-ids.txt`. e.g
 * `ItemId`: The id of the item
 * `ItemType`: The type of the item
 * `FileName`: The item filename where the difference was found 
-* `DifferenceType`: The type of difference. For a full list of possible values please review: [XmlUnit Difference Types](https://github.com/xmlunit/xmlunit/blob/master/xmlunit-core/src/main/java/org/xmlunit/diff/ComparisonType.java)
+* `DifferenceType`: The type of difference. For more details please review: [XmlUnit Difference Types](docs/difference-types.md)
 * `ImportElementName`: Element name where the difference was found
 * `ImportAttributes`: Element attributed where the difference was found
 * `ImportValue`: Value on the file used during the initial import
@@ -122,7 +122,7 @@ One file is created for the entire compare execution. This report will categoriz
 The high-level report file name follows the following pattern `tims-compare-<timestamp>.csv`
 
 #### Columns
-* `DifferenceType`: The type of difference. For a full list of possible values please review: [XmlUnit Difference Types](https://github.com/xmlunit/xmlunit/blob/master/xmlunit-core/src/main/java/org/xmlunit/diff/ComparisonType.java)
+* `DifferenceType`: The type of difference. For more details please review: [XmlUnit Difference Types](docs/difference-types.md)
 * `ImportElementName`: Element name where the difference was found
 * `ImportAttributes`: Element attributed where the difference was found
 * `ImportValue`: Value on the file used during the initial import
