@@ -35,10 +35,10 @@ spring:
 
 itembank:
   host: "https://gitlab-dev.smarterbalanced.org"
-  accessToken: "${GITLAB_ACCESS_TOKEN}"
-  user: "${GITLAB_USER}"
-  password: "${GITLAB_PASSWORD}"
-  group: "${GITLAB_GROUP}"
+  accessToken: "${TIMS_COMPARE_GITLAB_ACCESS_TOKEN}"
+  user: "${TIMS_COMPARE_GITLAB_USER}"
+  password: "${TIMS_COMPARE_GITLAB_PASSWORD}"
+  group: "${TIMS_COMPARE_GITLAB_GROUP}"
   localBaseDir: "${HOME}/ItemBankCompare"
   apiVersion: "/api/v4"
   bankKey: "200"
@@ -61,8 +61,8 @@ compare:
   compareIdFileName: "compare-ids.txt"
   sourceBank:
     host: "https://gitlab-dev.smarterbalanced.org/api/v4"
-    token: "${GITLAB_SOURCE_BANK_ACCESS_TOKEN}"
-    group: "${GITLAB_GROUP}"
+    token: "${TIMS_COMPARE_GITLAB_SOURCE_BANK_ACCESS_TOKEN}"
+    group: "${TIMS_COMPARE_GITLAB_GROUP}"
     bankKey: "200"
 ---
 spring:
