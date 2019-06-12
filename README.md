@@ -30,15 +30,18 @@ A simple directory structure like this is recommended:
    ~/ItemCompareReports
    ~/ItemCompareReports/temp
    ```
-1. Download most recent ap-item-compare application Jar file from the [Releases](https://github.com/SmarterApp/AP_ItemCompare/releases) page. Only the Jar file is needed. Download file to the Report directory
+1. Go to the AP_ItemCompare [Releases](https://github.com/SmarterApp/AP_ItemCompare/releases) page.
+1. From the most recent release, download the following files to the Report directory created earlier:
+   1. Application jar file. File name will contain the most recent version number.
+   1. application.yml
+   1. runCompareProd.bat
+   1. runCompareProd.sh
 1. Rename the Jar file to `ap-item-compare.jar`
-1. Copy [application.yml](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/application.yml) to the Report directory created earlier
 1. Create an empty text file named `compare-ids.txt` in the Report directory
-1. Copy the [scripts](https://github.com/SmarterApp/AP_ItemCompare/blob/develop/scripts) directory contents to your Report directory
 1. If your operating system is MacOs 
    1. Open a terminal window
    1. Navigate to the Report directory
-   1. Run the following command `chmod +x *.sh` to make the shell scripts executable
+   1. Run the following command `chmod +x runCompareProd.sh` to make the shell script executable
 
 ### Environment variables
 Setup the following environment variables on your local computer
@@ -77,12 +80,8 @@ Prior to running the compare application, the ids of the items that will be comp
  1. Based on your operating system run one of the following commands:
     * On MacOs
       * run `./runCompareProd.sh` to compare items in the production environment
-      * run `./runCompareUat.sh` to compare items in the uat environment
-      * run `./runCompareDev.sh` to compare items in the development environment
     * On Windows
       * run `runCompareProd.bat` to compare items in the production environment
-      * run `runCompareUat.bat` to compare items in the uat environment
-      * run `runCompareDev.bat` to compare items in the development environment
    
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
