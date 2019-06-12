@@ -74,6 +74,7 @@ itembank:
 compare:
   sourceBank:
     host: "https://gitlab-dev.smarterbalanced.org/api/v4"
+    group: "iat-development"
 ---
 spring:
   profiles: uat
