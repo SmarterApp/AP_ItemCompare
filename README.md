@@ -80,12 +80,8 @@ Prior to running the compare application, the ids of the items that will be comp
  1. Based on your operating system run one of the following commands:
     * On MacOs
       * run `./runCompareProd.sh` to compare items in the production environment
-      * run `./runCompareUat.sh` to compare items in the uat environment
-      * run `./runCompareDev.sh` to compare items in the development environment
     * On Windows
       * run `runCompareProd.bat` to compare items in the production environment
-      * run `runCompareUat.bat` to compare items in the uat environment
-      * run `runCompareDev.bat` to compare items in the development environment
    
 ## Results
 The Item Compare Application produces two reports. During the execution of the Item Compare Application a new directory will be created in `TIMS_COMPARE_REPORT_DIR` following this format `tims-compare-<date-timestamp>`. 
