@@ -57,7 +57,22 @@ TIMS_COMPARE_REPORT_DIR=~/ItemCompareReports
 TIMS_COMPARE_TEMP_DIR=~/ItemCompareReports/temp
 ```
 
-Work with the development team to populate the missing values
+One may need to work with the team managing Gitlab to populate the missing values.
+
+#### Environment Variables Descrtion
+To use the item compare tool users will need to have credentials to access the Gitlab itembank.  In addition the user will need to be able to get the secret key created.  The team managing Gitlab should be able to provide this information.
+
+Environment Variable | Description 
+|-------|------|
+| `TIMS_COMPARE_GITLAB_SOURCE_BANK_ACCESS_TOKEN`| The user's Gitlab token.  Documentation [here](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html). |
+|`TIMS_COMPARE_GITLAB_ACCESS_TOKEN` | This is the same token as the `TIMS_COMPARE_GITLAB_SOURCE_BANK_ACCESS_TOKEN`. |
+| `TIMS_COMPARE_GITLAB_GROUP` | This is the Gitlab group containing the items.  For example, TIMS items in production are in `iat-prod`|
+| `TIMS_COMPARE_GITLAB_HOST` | The host for the Gitlab itembank.  For example, `https://gitlab-dev.smarterbalanced.org/` |
+| `TIMS_COMPARE_GITLAB_PASSWORD` | The user's password.  This is in plain text hence why it is saved in environment variables.
+| `TIMS_COMPARE_GITLAB_USER` | The user's Gitlab username |
+| `TIMS_COMPARE_REPORT_DIR` | The output folder containing the compare reports | 
+| `TIMS_COMPARE_TEMP_DIR ` | This is used to clone item files from the itembank and is only used during report runs.  One can delete this after comparing files. |
+
 
 ### Item Id Configuration
 Prior to running the compare application, the ids of the items that will be compared should be saved in the `compare-ids.txt` file. Example values:
