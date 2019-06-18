@@ -34,7 +34,7 @@ spring:
       - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
 
 itembank:
-  host: "${TIMS_COMPARE_GITLAB_HOST}"
+  host: "https://gitlab-dev.smarterbalanced.org"
   accessToken: "${TIMS_COMPARE_GITLAB_ACCESS_TOKEN}"
   user: "${TIMS_COMPARE_GITLAB_USER}"
   password: "${TIMS_COMPARE_GITLAB_PASSWORD}"
