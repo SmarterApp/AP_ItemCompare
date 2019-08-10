@@ -1,0 +1,28 @@
+<editorconfig xmlns="">
+    <tabConfig>
+        <tab xmlns="http://www.w3.org/1999/xhtml" title="SBAC7">
+            <grid title="Numbers" cols="3">
+                <item aria-label="one" title="one">1</item>
+                <item aria-label="two" title="two">2</item>
+                <item aria-label="three" title="three">3</item>
+                <item aria-label="four" title="four">4</item>
+                <item aria-label="five" title="five">5</item>
+                <item aria-label="six" title="six">6</item>
+                <item aria-label="seven" title="seven">7</item>
+                <item aria-label="eight" title="eight">8</item>
+                <item aria-label="nine" title="nine">9</item>
+                <item aria-label="zero" title="zero">0</item>
+                <item aria-label="period" title="period">.</item>
+                <item aria-label="minus" title="minus">-</item>
+                <item aria-label="test" title="test">T</item>
+            </grid>
+        </tab>
+    </tabConfig>
+    <editorRow>
+        <math xmlns="http://www.w3.org/1998/Math/MathML" title="">
+            <mstyle>
+                <mo />
+            </mstyle>
+        </math>
+    </editorRow>
+</editorconfig>
