@@ -53,6 +53,7 @@ logging:
           common: "info"
 
 compare:
+  comparers: all
   # Base directory where comparison result files will be written to
   reportBaseDir: "${TIMS_COMPARE_REPORT_DIR}"
   # Temporary directory where item files will be downloaded and deleted after compare completes
