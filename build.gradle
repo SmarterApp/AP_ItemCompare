@@ -99,6 +99,8 @@ dependencies {
 
     compile 'com.lmax:disruptor:3.3.7'
 
+    compile 'net.sourceforge.cssparser:cssparser:0.9.27'
+    compile 'io.github.java-diff-utils:java-diff-utils:4.0'
     compile 'io.github.openfeign:feign-gson:9.3.1'
 
     compile 'org.codehaus.groovy:groovy-all:2.4.15'
