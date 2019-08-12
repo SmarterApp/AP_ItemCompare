@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<itemrelease version="2.0">
+
+    <item format="eq" id="183704" version="7" bankkey="200">
+
+        <associatedpassage>193804</associatedpassage>
+
+        <attriblist>
+
+            <attrib attid="itm_item_id">
+
+                <name>Item: ITS ID</name>
+
+                <val>3704</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Item Format">
+
+                <name>Item: Item Format</name>
+
+                <val>EQ</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Answer Key">
+
+                <name>Item: Answer Key</name>
+
+                <val>EQ</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Page Layout">
+
+                <name>Item: Page Layout</name>
+
+                <val>21</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Response Type">
+
+                <name>Item: Response Type</name>
+
+                <val>EquationEditor</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Grade">
+
+                <name>Item: Grade</name>
+
+                <val>7</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_item_subject">
+
+                <name>Item: Subject</name>
+
+                <val>MATH</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="itm_att_Item Point">
+
+                <name>Item: Item Point</name>
+
+                <val>1 pt.</val>
+
+                <desc></desc>
+
+            </attrib>
+
+            <attrib attid="stm_pass_id">
+
+                <name>Stim: ITS ID</name>
+
+                <val>3804</val>
+
+                <desc></desc>
+
+            </attrib>
+
+        </attriblist>
+
+        <tutorial id="181074" bankkey="200"/>
+
+        <resourceslist>
+
+            <resource type="wordList" id="600183705" index="1" bankkey="200"/>
+
+        </resourceslist>
+
+        <MachineRubric filename="//Item_183704_v11.qrx"/>
+
+        <RendererSpec filename="//Item_183704_v11.eax"/>
+
+        <content language="ENU" version="2.1">
+
+            <stem>
+                <![CDATA[<p>TEST: You <span id="item_183704_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>would also like<span class="its-tag" data-tag-ref="item_183704_TAG_1" data-tag-boundary="end"></span> your <span id="item_183704_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_2" data-tag-boundary="end"></span> <span id="item_183704_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>painted<span class="its-tag" data-tag-ref="item_183704_TAG_3" data-tag-boundary="end"></span>.</p><p>Your <span id="item_183704_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_4" data-tag-boundary="end"></span> has <span id="item_183704_TAG_1_BEGIN">300</span> square feet of <span id="item_183704_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>wall<span class="its-tag" data-tag-ref="item_183704_TAG_5" data-tag-boundary="end"></span> <span id="item_183704_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>space<span class="its-tag" data-tag-ref="item_183704_TAG_6" data-tag-boundary="end"></span> <span id="item_183704_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to paint<span class="its-tag" data-tag-ref="item_183704_TAG_7" data-tag-boundary="end"></span>.</p><p>Sam says <span id="item_183704_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>it took<span class="its-tag" data-tag-ref="item_183704_TAG_8" data-tag-boundary="end"></span> her 10 minutes <span id="item_183704_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to paint<span class="its-tag" data-tag-ref="item_183704_TAG_9" data-tag-boundary="end"></span> 25 square feet.</p><br /><p><span style="letter-spacing:normal;">At this rate, if Sam <span id="item_183704_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>painted<span class="its-tag" data-tag-ref="item_183704_TAG_10" data-tag-boundary="end"></span> your <span id="item_183704_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_11" data-tag-boundary="end"></span>, how many </span><strong><span id="item_183704_TAG_2_BEGIN"><span style="letter-spacing:normal;">hours</span></span></strong><span style="letter-spacing:normal;"> would it&#xA0;</span><span id="item_183704_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span id="item_183704_TAG_0_BEGIN">take</span><span class="its-tag" data-tag-ref="item_183704_TAG_1" data-tag-boundary="end"></span>?</p>]]></stem>
+
+            <rubriclist>
+
+                <rubric scorepoint="" index="0">
+
+                    <name>Rubric</name>
+
+                    <val>
+                        <![CDATA[<p style="color:;">Exemplar:</p> <br /> <ul style="padding-left:1.5000em; ">  <li><p style="color:;"><span>2</span> </p></li> </ul> <br /> <p style="color:;">For this item, a full-credit response includes</p> <br /> <ul style="padding-left:1.5000em; ">  <li><p style="color:;"><span>student enters 2 or equivalent</span> (1 point)<span style="background-color:;">.</span></p></li> </ul>]]></val>
+
+                </rubric>
+
+                <samplelist maxval="" minval="" index="0"/>
+
+            </rubriclist>
+
+            <attachmentlist>
+
+                <attachment id="878323819" type="ASL" subtype="STEM" file="item_183704_ASL_STEM.mp4">
+
+                    <source src="item_183704_ASL_STEM.mp4" type="video/mp4"/>
+
+                    <source src="item_183704_ASL_STEM.webm" type="video/webm"/>
+
+                </attachment>
+
+                <attachment id="190602465" type="BRF" subtype="ECN" file="item_183704_enu_ecn.brf"/>
+
+                <attachment id="791814636" type="BRF" subtype="EXN" file="item_183704_enu_exn.brf"/>
+
+                <attachment id="1505759473" type="BRF" subtype="UCN" file="item_183704_enu_ucn.brf"/>
+
+                <attachment id="1511300599" type="BRF" subtype="UCT" file="item_183704_enu_uct.brf"/>
+
+                <attachment id="2106971644" type="BRF" subtype="UXN" file="item_183704_enu_uxn.brf"/>
+
+                <attachment id="2112512770" type="BRF" subtype="UXT" file="item_183704_enu_uxt.brf"/>
+
+            </attachmentlist>
+
+            <apipAccessibility>
+
+                <accessibilityInfo>
+
+                    <accessElement identifier="ae1">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_0_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>take, From left to right and top to bottom the equation tool
+                                    reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.
+                                </textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>take</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                    <accessElement identifier="ae2">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_1_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>3 hundred</textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>300</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                    <accessElement identifier="ae3">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_2_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>hours,</textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>hours</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                </accessibilityInfo>
+
+            </apipAccessibility>
+
+        </content>
+
+        <content language="ESN" version="2.0">
+
+            <stem><![CDATA[<p>A ti también te gustaría pintar tu cuarto. </p> <p>El espacio en las paredes de tu cuarto que necesitan pintarse mide 300 pies cuadrados.</p> <p>Sam dice que ella tardó 10 minutos en pintar 25 pies cuadrados. </p> <br /> <p>A este ritmo, si Sam pintara tu cuarto, ¿cuántas <strong>horas</strong> se tardaría? </p>
+
+<p class="languagedivider">&#xA0;</p>
+
+<p>You <span id="item_183704_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="1"></span>would also like<span class="its-tag" data-tag-ref="item_183704_TAG_1" data-tag-boundary="end"></span> your <span id="item_183704_TAG_2" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_2" data-tag-boundary="end"></span> <span id="item_183704_TAG_3" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>painted<span class="its-tag" data-tag-ref="item_183704_TAG_3" data-tag-boundary="end"></span>.</p><p>Your <span id="item_183704_TAG_4" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_4" data-tag-boundary="end"></span> has <span id="item_183704_TAG_4_BEGIN">300</span> square feet of <span id="item_183704_TAG_5" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="2"></span>wall<span class="its-tag" data-tag-ref="item_183704_TAG_5" data-tag-boundary="end"></span> <span id="item_183704_TAG_6" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="3"></span>space<span class="its-tag" data-tag-ref="item_183704_TAG_6" data-tag-boundary="end"></span> <span id="item_183704_TAG_7" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to paint<span class="its-tag" data-tag-ref="item_183704_TAG_7" data-tag-boundary="end"></span>.</p><p>Sam says <span id="item_183704_TAG_8" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="4"></span>it took<span class="its-tag" data-tag-ref="item_183704_TAG_8" data-tag-boundary="end"></span> her 10 minutes <span id="item_183704_TAG_9" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="8"></span>to paint<span class="its-tag" data-tag-ref="item_183704_TAG_9" data-tag-boundary="end"></span> 25 square feet.</p><br /><p><span style="letter-spacing:normal;">At this rate, if Sam <span id="item_183704_TAG_10" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="6"></span>painted<span class="its-tag" data-tag-ref="item_183704_TAG_10" data-tag-boundary="end"></span> your <span id="item_183704_TAG_11" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="7"></span>room<span class="its-tag" data-tag-ref="item_183704_TAG_11" data-tag-boundary="end"></span>, how many </span><strong><span id="item_183704_TAG_5_BEGIN"><span style="letter-spacing:normal;">hours</span></span></strong><span style="letter-spacing:normal;"> would it&#xA0;</span><span id="item_183704_TAG_1" class="its-tag" data-tag="word" data-tag-boundary="start" data-word-index="5"></span><span id="item_183704_TAG_3_BEGIN">take</span><span class="its-tag" data-tag-ref="item_183704_TAG_1" data-tag-boundary="end"></span>?</p>]]></stem>
+
+            <rubriclist>
+
+                <rubric scorepoint="" index="0">
+
+                    <name>Rubric</name>
+
+                    <val>
+                        <![CDATA[<p style="color:;">Exemplar:</p> <br /> <ul style="padding-left:1.5000em; ">  <li><p style="color:;"><span>2</span> </p></li> </ul> <br /> <p style="color:;">For this item, a full-credit response includes</p> <br /> <ul style="padding-left:1.5000em; ">  <li><p style="color:;"><span>student enters 2 or equivalent</span> (1 point)<span style="background-color:;">.</span></p></li> </ul>]]></val>
+
+                </rubric>
+
+                <samplelist maxval="" minval="" index="0"/>
+
+            </rubriclist>
+
+            <attachmentlist>
+
+                <attachment id="878323819" type="ASL" subtype="STEM" file="item_183704_ASL_STEM.mp4">
+
+                    <source src="item_183704_ASL_STEM.mp4" type="video/mp4"/>
+
+                    <source src="item_183704_ASL_STEM.webm" type="video/webm"/>
+
+                </attachment>
+
+                <attachment id="190602465" type="BRF" subtype="ECN" file="item_183704_enu_ecn.brf"/>
+
+                <attachment id="791814636" type="BRF" subtype="EXN" file="item_183704_enu_exn.brf"/>
+
+                <attachment id="1505759473" type="BRF" subtype="UCN" file="item_183704_enu_ucn.brf"/>
+
+                <attachment id="1511300599" type="BRF" subtype="UCT" file="item_183704_enu_uct.brf"/>
+
+                <attachment id="2106971644" type="BRF" subtype="UXN" file="item_183704_enu_uxn.brf"/>
+
+                <attachment id="2112512770" type="BRF" subtype="UXT" file="item_183704_enu_uxt.brf"/>
+
+            </attachmentlist>
+
+            <apipAccessibility>
+
+                <accessibilityInfo>
+
+                    <accessElement identifier="ae1">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_3_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>take, From left to right and top to bottom the equation tool
+                                    reeds, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, point, negative.
+                                </textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>take</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                    <accessElement identifier="ae2">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_4_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>3 hundred</textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>300</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                    <accessElement identifier="ae3">
+
+                        <contentLinkInfo itsLinkIdentifierRef="item_183704_TAG_5_BEGIN" type="Text">
+
+                            <objectLink></objectLink>
+
+                        </contentLinkInfo>
+
+                        <relatedElementInfo>
+
+                            <readAloud>
+
+                                <textToSpeechPronunciation>hours,</textToSpeechPronunciation>
+
+                            </readAloud>
+
+                            <brailleText>
+
+                                <brailleTextString>hours</brailleTextString>
+
+                            </brailleText>
+
+                        </relatedElementInfo>
+
+                    </accessElement>
+
+                </accessibilityInfo>
+
+            </apipAccessibility>
+
+        </content>
+
+    </item>
+
+</itemrelease>
+
