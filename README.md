@@ -110,6 +110,14 @@ To run in only specific compare modes, execute the script with an additional arg
 If not provided, `all` compare modes will be executed.
 
 ---
+
+## Known Errors
+Due to external libraries this tool uses some errors will show up in the logs when running the report.  These are not critical errors but can be confusing to users.
+
+* Invalid Token
+	* `null [1:7] Error in expression. (Invalid token ";". Was expecting one of: <S>, <NUMBER>, "inherit", <IDENT>, <STRING>, "-", <PLUS>, <HASH>, <EMS>, <EXS>, <LENGTH_PX>, <LENGTH_CM>, <LENGTH_MM>, <LENGTH_IN>, <LENGTH_PT>, <LENGTH_PC>, <ANGLE_DEG>, <ANGLE_RAD>, <ANGLE_GRAD>, <TIME_MS>, <TIME_S>, <FREQ_HZ>, <FREQ_KHZ>, <RESOLUTION_DPI>, <RESOLUTION_DPCM>, <PERCENTAGE>, <DIMENSION>, <UNICODE_RANGE>, <URI>, <FUNCTION>, "progid:".)`
+	* This error occurs when HTML is using invalid CSS.  When this happens the comparison is ignored as the element/css is invalid and cannot be processed.  All HTML should be valid HTML otherwise it will be ignored.
+
   
 ## Results
 The Item Compare Application produces two types of reports:
