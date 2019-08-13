@@ -1,4 +1,5 @@
 # Viewing reports in Excel.
+[HTML Report page](html_results.md)
 
 Excel doesn't handle UTF-8 characters properly when opening CSV's.   There is an option to import the CSV text correctly into Excel but it requires extra steps.  This page provides screenshots to go along with the steps outlined [here](https://www.itg.ias.edu/content/how-import-csv-file-uses-utf-8-character-encoding-0).
 

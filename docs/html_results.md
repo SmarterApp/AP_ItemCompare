@@ -1,4 +1,7 @@
 # HTML Comparison Report 
+
+[Main Page](../README.md)
+
 The HTML Comparison report is slightly different than the XML report as it is focused on the fields that have CDATA HTML within them.
 
 HTML can have UTF-8 characters that do not display correctly in Excel unless specific steps are followed.  Those steps are documented [here](import_utf8_excel.md).
