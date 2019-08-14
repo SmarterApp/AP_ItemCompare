@@ -27,7 +27,7 @@ In addition to the summary report a detailed report is created for each item wit
 | ---- | ---- |
 | DIFFERENCE_TYPE | This will currently be TEXT or STYLE.  Currently the codes are described in the Summary report section. |
 | FILENAME | The file used for the report. |
-| LOCATION | This defines where content the difference was found.  For example, differences found in the stem/prompt area are identified as Langauge_Prompt with the Language being replaced with English or Spanish depending where the difference was found. |
+| LOCATION | This defines where the difference was found within the content.  For example, differences found in the stem/prompt area are identified as Langauge_Prompt with the Language being replaced with English or Spanish depending where the difference was found. |
 | IMPORT_VALUE | The HTML content with the difference found in the Smarter source data. |
 | TIMS_VALUE | The HTML content with the difference found in the TIMS produced data. |
 
@@ -66,9 +66,9 @@ The snippets which the tool has identified as different will be surrounded by th
 
 | Code | Description | Example |
 | ---- | ------ | ----- |
-| BOLD | Represents a bolding was added or removed. | `<BOLD,ITALIC>italic</BOLD,ITALIC>` |
-| ITALICS | Present when the italics were removed or added. | `<ITALIC>italic</ITALIC>` | 
+| BOLD | Present when the bolding was removed or added. | `<BOLD,ITALIC>italic</BOLD,ITALIC>` |
+| ITALICS | Present when the italics was removed or added. | `<ITALIC>italic</ITALIC>` | 
 | UNDERLINE | Present when the underline was removed or added. | `<UNDERLINE>text</UNDERLINE>` |
-| FONT | Present when font size has changed. | `<FONT>some text...</FONT>` |
+| FONT | Present when the font size has changed. | `<FONT>some text...</FONT>` |
 | SUPERSCRIPT | Present when the superscript was removed or added. | `<SUPERSCRIPT>other text</SUPERSCRIPT>` |
 | SUBSCRIPT | Present when the superscript was removed or added. | `<SUBSCRIPT> some other text </SUBSCRIPT>` |
