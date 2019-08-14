@@ -13,9 +13,6 @@ There are multiple ways to compare items.  The currently supported compare modes
   * qrx file (if applicable)
   * gax file (if applicable)
   * eax file (if applicable)
-  
-  Differences are reported as [XmlUnit Difference Types](docs/difference-types.md)
-* `html` - Coming soon
 
 By default `all` compare modes are run. See [Run Compare Application](#run-compare-application) for details.
 
@@ -96,11 +93,23 @@ To run the compare application
 
 1. Open a terminal window
 1. Navigate to the `TIMS_COMPARE_REPORT_DIR` directory
-1. Based on your operating system run one of the following commands:
-	* On MacOs
-		* run `./runCompareProd.sh` to compare items in the production environment
-	* On Windows
-		* run `runCompareProd.bat` to compare items in the production environment
+1. Based on your operating system run one of the commands in the "Commands" section.
+
+### Commands
+Use the `*.bat` file for Windows and the `*.sh` command when running in a Linux type environment (i.e. Mac).  The examples below use the shell scripts.
+
+* Default Operation
+	* By default both the XML and HTML reports are run
+	* This is currently limited to 400 or less items
+	* Run `./runCompareProd.sh`
+* XML Report
+	* This runs only the XML Comparison Report
+	* This does a XML element comparison ignoring all CDATA elements in the SAAIF data
+	* Run `./runCompareProd.sh --compare.comparers=xml`
+* HTML Report
+	* This runs only the HTML Comparison Report
+	* This runs comparisons against all the HTML (CDATA) elements within the SAAIF data
+	* Run `./runCompareProd.sh --compare.comparers=html`
 	
 ---
 **NOTE:** 
