@@ -23,7 +23,7 @@ The summary report provides counts for each item on the number of errors that ar
 ## HTML Detail Report
 In addition to the summary report a detailed report is created for each item with more detail than the summary report.
 
-| Columnb Name | Description |
+| Column Name | Description |
 | ---- | ---- |
 | DIFFERENCE_TYPE | This will currently be TEXT or STYLE.  Currently the codes are described in the Summary report section. |
 | FILENAME | The file used for the report. |
@@ -32,3 +32,43 @@ In addition to the summary report a detailed report is created for each item wit
 | TIMS_VALUE | The HTML content with the difference found in the TIMS produced data. |
 
 **Note** - HTML text differences have the <OLD> and <NEW> tags surrounding the HTML indicating what is new or old in the differences.
+
+## Difference Type Definitions
+
+### Text Differences
+
+The text differences strips out the following prior to doing the diff:
+
+* All HTML Tags
+* Spaces are reduced to a single space.  If there is "<p>This     is something</p>" will be reduced to "This is something"
+
+After those things are removed then the text is compared.  If the text is the same it will not be present in the report.  The tool marks the differences in the text.
+
+| Markings | Descriptions |
+| -------- | ------------ |
+| `<OLD>` | This will surround text that has been removed in the TIMS created HTML.  |
+| `<NEW>` | This will surround text that has been added in the TIMS created HTML |
+
+### Style Differences 
+
+The tool attempts to find all style differences in the HTML.  It lines up the text and tags the best it can depending on the amount of changes made by the user since the content was added to TIMS.
+
+* bolding
+* italics
+* super and subscript
+* underline
+* font changes
+
+The snippets which the tool has identified as different will be surrounded by the changes.  One or all of the following can surround the snippet.
+
+* "removed" means that the source had styling that the new does not
+* "added" means that the new HTML has additional style not present in the source
+
+| Code | Description |
+| ---- | ------ |
+| BOLD | Represents a bolding was added or removed. |
+| ITALICS | Present when the italics were removed or added. |
+| UNDERLINE | Present when the underline was removed or added. |
+| FONT | Present when font size has changed. |
+| SUPERSCRIPT | Present when the superscript was removed or added. |
+| SUBSCRIPT | Present when the superscript was removed or added. |
