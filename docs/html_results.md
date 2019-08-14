@@ -18,7 +18,7 @@ The summary report provides counts for each item on the number of errors that ar
 | IMPORT_VALUE_NOT_FOUND | The value was in the current XML but could not be found in the import.zip |
 | TIMS_VALUE_NOT_FOUND | The value was in the import XML but could not be found in the TIMS produced XML |
 | TEXT_DIFFERENCE | The number of text differences within the HTML that were found for the item |
-| STYLE_DIFFERENCE |  The number of style differences within the HTML that were found for the item.  Any style differenct (bold, underline, italics, etc.) will be included in this count.
+| STYLE_DIFFERENCE |  The number of style differences within the HTML that were found for the item.  Any style difference (bold, underline, italics, etc.) will be included in this count.
 
 ## HTML Detail Report
 In addition to the summary report a detailed report is created for each item with more detail than the summary report.
@@ -31,7 +31,7 @@ In addition to the summary report a detailed report is created for each item wit
 | IMPORT_VALUE | The HTML content with the difference found in the Smarter source data. |
 | TIMS_VALUE | The HTML content with the difference found in the TIMS produced data. |
 
-**Note** - HTML text differences have the <OLD> and <NEW> tags surrounding the HTML indicating what is new or old in the differences.
+**Note** - HTML text differences have the `<OLD>` and `<NEW>` tags surrounding the HTML indicating what is new or old in the differences.
 
 ## Difference Type Definitions
 
@@ -40,14 +40,14 @@ In addition to the summary report a detailed report is created for each item wit
 The text differences strips out the following prior to doing the diff:
 
 * All HTML Tags
-* Spaces are reduced to a single space.  If there is "<p>This     is something</p>" will be reduced to "This is something"
+* Spaces are reduced to a single space.  If there is `"<p>This     is something</p>"` will be reduced to `"This is something"`
 
 After those things are removed then the text is compared.  If the text is the same it will not be present in the report.  The tool marks the differences in the text.
 
-| Markings | Descriptions |
-| -------- | ------------ |
-| `<OLD>` | This will surround text that has been removed in the TIMS created HTML.  |
-| `<NEW>` | This will surround text that has been added in the TIMS created HTML |
+| Markings | Descriptions | Example |
+| -------- | ------------ | ------- |
+| `<OLD>` | This will surround text that has been removed in the TIMS created HTML.  | `<OLD>Source</OLD> Value` |
+| `<NEW>` | This will surround text that has been added in the TIMS created HTML | `<NEW>Test</NEW> Value` |
 
 ### Style Differences 
 
@@ -64,11 +64,11 @@ The snippets which the tool has identified as different will be surrounded by th
 * "removed" means that the source had styling that the new does not
 * "added" means that the new HTML has additional style not present in the source
 
-| Code | Description |
-| ---- | ------ |
-| BOLD | Represents a bolding was added or removed. |
-| ITALICS | Present when the italics were removed or added. |
-| UNDERLINE | Present when the underline was removed or added. |
-| FONT | Present when font size has changed. |
-| SUPERSCRIPT | Present when the superscript was removed or added. |
-| SUBSCRIPT | Present when the superscript was removed or added. |
+| Code | Description | Example |
+| ---- | ------ | ----- |
+| BOLD | Represents a bolding was added or removed. | `<BOLD,ITALIC>italic</BOLD,ITALIC>` |
+| ITALICS | Present when the italics were removed or added. | `<ITALIC>italic</ITALIC>` | 
+| UNDERLINE | Present when the underline was removed or added. | `<UNDERLINE>text</UNDERLINE>` |
+| FONT | Present when font size has changed. | `<FONT>some text...</FONT>` |
+| SUPERSCRIPT | Present when the superscript was removed or added. | `<SUPERSCRIPT>other text</SUPERSCRIPT>` |
+| SUBSCRIPT | Present when the superscript was removed or added. | `<SUBSCRIPT> some other text </SUBSCRIPT>` |
