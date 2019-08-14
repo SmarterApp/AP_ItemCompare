@@ -2,7 +2,10 @@
 
 [Main Page](../README.md)
 
-### Low level Item Report
+## Differences
+Differences are reported as [XmlUnit Difference Types](docs/difference-types.md)
+
+## Low level Item Report
 One file is created for each valid item number entered in `compare-ids.txt`. e.g. `18786.csv`
 
 #### Columns
@@ -33,11 +36,11 @@ ATTR_VALUE,item-200-183467.xml,/itemrelease[1]/item[1]/MachineRubric[1]/@filenam
 ATTR_VALUE,item-200-183467.xml,/itemrelease[1]/item[1]/RendererSpec[1]/@filename,Item_3467_v0.eax,Item_183467_v11.eax
 ```
 
-### High-level Summary Report
+## High-level Summary Report
 One file is created for the entire compare execution. This report will report the number of each DIFFERENCE_TYPE for each source item. 
 The high-level report file name is always `summary.csv`
 
-#### Columns
+### Columns
 The columns of the summary report are based upon which compare modes are used, since each compare mode contains separate difference types.<br>
 The common columns regardless of compare modes are:
 * `ITEM_ID`: The id of the item for the row
@@ -46,7 +49,7 @@ The common columns regardless of compare modes are:
   (Error details can be found in the execution logs as well as the low-level report.)
 * Following columns are all allowed DIFFERENCE_TYPE values based upon the compare modes with associated counts per item.
 
-#### Sample high level item report 
+### Sample high level item report 
 ```csv
 ITEM_ID,ITEM_TYPE,ERRORS,IMPORT_FILE_NOT_FOUND,TIMS_FILE_NOT_FOUND,XML_VERSION,XML_STANDALONE,XML_ENCODING,HAS_DOCTYPE_DECLARATION,DOCTYPE_NAME,DOCTYPE_PUBLIC_ID,DOCTYPE_SYSTEM_ID,SCHEMA_LOCATION,NO_NAMESPACE_SCHEMA_LOCATION,NODE_TYPE,NAMESPACE_PREFIX,NAMESPACE_URI,TEXT_VALUE,PROCESSING_INSTRUCTION_TARGET,PROCESSING_INSTRUCTION_DATA,ELEMENT_TAG_NAME,ATTR_VALUE_EXPLICITLY_SPECIFIED,ELEMENT_NUM_ATTRIBUTES,ATTR_VALUE,CHILD_NODELIST_LENGTH,CHILD_NODELIST_SEQUENCE,CHILD_LOOKUP,ATTR_NAME_LOOKUP
 987293874,UNKNOWN,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
