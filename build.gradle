@@ -76,14 +76,11 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-log4j2'
     compile 'org.springframework.boot:spring-boot-starter-freemarker'
     compile 'org.springframework.boot:spring-boot-starter-cache'
-    compile 'org.springframework.boot:spring-boot-starter-data-redis'
 
     compile 'org.springframework.cloud:spring-cloud-starter-config'
     compile 'org.springframework.cloud:spring-cloud-starter-feign'
 
-    compile 'org.springframework.security.extensions:spring-security-saml2-core:1.0.2.RELEASE'
     compile 'org.springframework.retry:spring-retry'
-    compile 'org.springframework.session:spring-session'
 
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r'
 
